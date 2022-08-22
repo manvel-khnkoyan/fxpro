@@ -1,0 +1,44 @@
+### Task Requirements
+
+1.  Fetch all user details
+2.  Fetch distinct countries with # of users
+3.  Add new user
+4.  Provide statistics on all countries in one request: average earnings of the 10 users with highest earnings per country.  
+    Optimize for performance: consider a huge database, and that the frequency of user updates is low, while the frequency of statistics requests is very high.
+
+### Install all the packages
+
+`npm i`
+
+### Run Project
+
+`npm run start`
+
+or
+
+`node src/http/server.js`
+
+> Also added a script that automatically creates 1000 new users to have data for testing.
+
+### Create new user
+
+```plaintext
+curl --location --request POST 'http://localhost:3000/users' 
+	--header 'Content-Type: application/json' 
+	--data-raw '{
+	"name": "Ashotic",
+	"countryCode": "AM",
+	"earning": {
+	"currency": "eur",
+	"amount": 13.44
+	}
+}'
+```
+
+There are two currencies available for now \['eur', 'usd'\]
+
+### Get country statistics
+
+```plaintext
+curl --location --request GET 'http://localhost:3000/country/statistics'
+```

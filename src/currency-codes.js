@@ -1,0 +1,4 @@
+module.exports = {
+  usd: '$',
+  eur: '€',
+};
